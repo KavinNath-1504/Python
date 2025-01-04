@@ -1,0 +1,36 @@
+def main():
+    studentCount = int(input("Enter the number of students in your class: "))
+    studentList = []
+    totalMarks = []
+    subjectCount = int(input("Enter the number of subjects: "))
+    gradeOne = []
+    gradeTwo = []
+    fail = []
+
+    for i in range(studentCount):
+        markList = [int(input(f"Enter the mark{j+1} of student{i+1}: ")) for j in range(subjectCount)]
+        print("\n")
+        for x in markList: #This line checks if each element is within the specified range.
+            if x in range(0, 101):
+                pass
+            else:
+                print("You entered an invalid number, please run the program again.")
+        studentList.append(markList) #This line is written outside the for-loop so that each element in marklist is not entered twice into the studentlist
+
+    for entry in studentList:
+        sum = 0
+        for score in entry:
+            sum += score
+        totalMarks.append(sum)
+
+    print(studentList)
+    for index, marklists in enumerate(studentList, start=1):
+        for idx, marks in enumerate(marklists, start=1):
+            print(f"The mark of student {index} in subject {idx}: {marks}")
+
+    for markcol in studentList:
+        for marks2 in markcol:
+            if marks2 in range(40, 60):
+                print(f"Student {index} has secured")
+                gradeTwo.append(str(f"Student {index}"))
+main()
